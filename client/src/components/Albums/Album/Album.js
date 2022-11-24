@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState }from 'react';
+import { useDispatch } from 'react-redux';
 import {Card, CardActions, CardContent, CardMedia, Button, Typography} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import useStyles from './styles.js'
+import { getPictures } from '../../../actions/pictures.js'
+import { useNavigate } from 'react-router-dom'
 
-
-const Album = ({ album }) => {
+const Album = ({ album, currentId, setCurrentId }) => {
     const classes = useStyles();
-    
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const navi = () => {
+        setCurrentId(album._id)
+        navigate('/pictures')
+    }
+
     return (
         <Card className={classes.card}>
             <CardMedia className={classes.media} image={album.image} title={album.name}/>
@@ -18,6 +27,7 @@ const Album = ({ album }) => {
             </div>
             <CardContent>
                 <Typography className={classes.title} variant="h5" gutterBottom>Album Name: {album.name}</Typography>
+                <Button variant="outlined" color="secondary" onClick={navi}><Typography className={classes.title} variant="h5" gutterBottom>Enter album</Typography></Button>
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" onClick={() => {}}>

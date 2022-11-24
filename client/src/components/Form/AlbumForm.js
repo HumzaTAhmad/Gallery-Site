@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles.js'
 import { createAlbum } from '../../actions/albums.js'
 
-const Form = () => {
+const AlbumForm = () => {
     const [albumData, setAlbumData] = useState({
         name:''
     })
@@ -25,7 +25,7 @@ const Form = () => {
     return (
         <Paper className={classes.paper}>
             <form autocomplete="off" noValidate className={`${classes.form} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">Creating an album</Typography>
+                <Typography variant="h6">Add an Album</Typography>
                 <TextField name="name" variant="outlined" label="Name" fullWidth value={albumData.name} onChange={(e) => setAlbumData({ ...albumData, name: e.target.value })}/>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
@@ -34,4 +34,4 @@ const Form = () => {
     )
 }
 
-export default Form
+export default AlbumForm

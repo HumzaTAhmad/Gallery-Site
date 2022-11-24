@@ -4,7 +4,7 @@ import * as api from '../api';
 export const getAlbums = () => async (dispatch) => {
     try {
         const { data } = await api.fetchAlbums();
-        dispatch({ type: 'FETCH_ALL', payload: data })
+        dispatch({ type: 'FETCH_ALL_ALB', payload: data })
     } catch (error){
         console.log(error.message)
     }
@@ -13,7 +13,7 @@ export const getAlbums = () => async (dispatch) => {
 export const createAlbum = (album) => async (dispatch) => {
     try{
         const { data } = await api.createAlbum(album);
-        dispatch({type: 'CREATE', payload: data})
+        dispatch({type: 'CREATE_ALB', payload: data})
     }catch(error){
         console.log(error);
     }

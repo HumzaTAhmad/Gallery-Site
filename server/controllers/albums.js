@@ -4,7 +4,7 @@ import axios from 'axios'
 export const getAlbums = async (req, res) => {
     try {
         const albums = await albumModel.find();
-        console.log(albums);
+        console.log("Get albums ran");
 
         res.status(200).json(albums);
     } catch(error) {
@@ -13,6 +13,7 @@ export const getAlbums = async (req, res) => {
 }
 
 export const createAlbum = async (req, res) => {
+    console.log("create albums ran")
     const image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_AOKi5KBBmGziHk2ejFnksQbfzU-FGuEAdg&usqp=CAU.png"
     const name = "flowers"
 
