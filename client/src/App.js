@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react';
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+import { Container, AppBar, Typography, Grow, Grid, Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { getAlbums } from './actions/albums.js'
 import { getPictures } from './actions/pictures.js'
 import gal from './images/gal.png'
@@ -11,12 +11,13 @@ import AlbumForm from './components/Form/AlbumForm.js';
 import PictureForm from './components/Form/PictureForm.js';
 import useStyles from './styles.js'
 import {Route, Routes, BrowserRouter as Router} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const App = () => {
     const [currentId, setCurrentId] = useState(0)
+    const [showBack, setShowBack] = useState(false)
     const classes = useStyles();
     const dispatch = useDispatch();
-
 
     useEffect(() => {
         dispatch(getAlbums());
@@ -25,6 +26,9 @@ const App = () => {
     
     return(
         <Router>
+        {showBack==true?<Button href="/albums" className={classes.buttonBack} variant="contained" color="primary" size="large" onClick={() => {}}>
+            <ArrowBackIcon fontSize="default" />
+        </Button>:null}
             <Container maxidth="lg">
                 <AppBar className={classes.appBar} position="static" color="inherit">
                     <Typography className={classes.heading} variant="h2" align="center">Gallery-site</Typography>
@@ -38,7 +42,7 @@ const App = () => {
                             </Grid>
                             <Grid item xs={12} sm={7}>
                                 <Routes>
-                                    <Route path="/albums" element={<Albums currentId={currentId} setCurrentId={setCurrentId}/>}/>
+                                    <Route path="/albums" element={<Albums currentId={currentId} setCurrentId={setCurrentId} setShowBack={setShowBack}/>}/>
                                     <Route path="/pictures" element={<Pictures currentId={currentId} setCurrentId={setCurrentId}/>}/>
                                 </Routes>
                             </Grid>

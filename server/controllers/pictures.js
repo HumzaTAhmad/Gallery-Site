@@ -14,17 +14,20 @@ export const getPictures = async (req, res) => {
 }
 
 export const createPicture = async (req, res) => {
-    const keyWord = "yellow-balloon"
+    console.log(req.body.name)
+    const keyWord = req.body.name
     const requestOne = await axios.get(`https://pixabay.com/api/?key=31235838-bd5758a4f626905b90d3a2998&q=${keyWord}&image_type=photo`);
     
     const image = requestOne.data.hits[1].userImageURL
-    const size = requestOne.data.hits[1].imageSize
+    const size = Math.floor((requestOne.data.hits[1].imageSize) / 1000);
     const foundAt = new Date()
+    const id = req.body.id
     try {
         const pictureData = new pictureModel({
             image: image,
             size: size,
-            foundAt: foundAt
+            foundAt: foundAt,
+            id: id
         })
 
         await pictureData.save();

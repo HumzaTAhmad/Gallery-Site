@@ -29,7 +29,7 @@ const PictureForm = ({ currentId }) => {
                 <Typography variant="h6">Add a Picture</Typography>
                 <TextField name="name" variant="outlined" label="Name" fullWidth value={pictureData.name} onChange={(e) => setPictureData({ ...pictureData, name: e.target.value })}/>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-                <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
+                <Button className={classes.secondButton} variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>
         </Paper>
     )

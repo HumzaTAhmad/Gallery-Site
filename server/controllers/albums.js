@@ -13,9 +13,8 @@ export const getAlbums = async (req, res) => {
 }
 
 export const createAlbum = async (req, res) => {
-    console.log("create albums ran")
-    const image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_AOKi5KBBmGziHk2ejFnksQbfzU-FGuEAdg&usqp=CAU.png"
-    const name = "flowers"
+    const image = "https://kinsta.com/wp-content/uploads/2020/04/Photo%20Gallery%20by%20GT3.jpg"
+    const name = req.body.name
 
     try {
         const albumData = new albumModel({

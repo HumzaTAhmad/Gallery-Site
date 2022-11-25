@@ -7,13 +7,14 @@ import useStyles from './styles.js'
 import { getPictures } from '../../../actions/pictures.js'
 import { useNavigate } from 'react-router-dom'
 
-const Album = ({ album, currentId, setCurrentId }) => {
+const Album = ({ album, currentId, setCurrentId, setShowBack }) => {
     const classes = useStyles();
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const navi = () => {
         setCurrentId(album._id)
+        setShowBack(true)
         navigate('/pictures')
     }
 
@@ -27,7 +28,7 @@ const Album = ({ album, currentId, setCurrentId }) => {
             </div>
             <CardContent>
                 <Typography className={classes.title} variant="h5" gutterBottom>Album Name: {album.name}</Typography>
-                <Button variant="outlined" color="secondary" onClick={navi}><Typography className={classes.title} variant="h5" gutterBottom>Enter album</Typography></Button>
+                <Button variant="contained" className={classes.buttonEnter} onClick={navi}><Typography className={classes.title} variant="h5" gutterBottom>Enter album</Typography></Button>
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" onClick={() => {}}>

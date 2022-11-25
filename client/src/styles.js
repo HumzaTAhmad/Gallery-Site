@@ -10,9 +10,15 @@ export default makeStyles(() => ({
     alignItems: 'center',
   },
   heading: {
-    color: 'rgba(0,183,255, 1)',
+    color: 'rgba(148,0,211, 1)',
   },
   image: {
     marginLeft: '15px',
+  },
+  buttonBack: {
+    marginBottom: 10,
+    width: 100,
+    color: 'rgba(247,135,51, 1)',
+    backgroundColor: 'rgba(148,0,211,1)',
   },
 }));

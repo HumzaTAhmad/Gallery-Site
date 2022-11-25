@@ -28,7 +28,7 @@ const AlbumForm = () => {
                 <Typography variant="h6">Add an Album</Typography>
                 <TextField name="name" variant="outlined" label="Name" fullWidth value={albumData.name} onChange={(e) => setAlbumData({ ...albumData, name: e.target.value })}/>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-                <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
+                <Button className={classes.secondButton} variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>
         </Paper>
     )
