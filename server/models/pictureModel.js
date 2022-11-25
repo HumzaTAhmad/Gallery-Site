@@ -3,6 +3,7 @@ import internal from 'stream';
 
 
 const pictureSchema = mongoose.Schema({
+    id: String,
     image: String,
     foundAt: {
         type: Date,
@@ -10,6 +11,6 @@ const pictureSchema = mongoose.Schema({
     size: Number
 });
 
-const pictureModel = mongoose.model('accountModel', pictureSchema);
+const pictureModel = mongoose.model('pictureModel', pictureSchema);
 
 export default pictureModel;

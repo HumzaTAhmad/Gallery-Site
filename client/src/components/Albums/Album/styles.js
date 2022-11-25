@@ -49,4 +49,7 @@ export default makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
   },
+  buttonEnter: {
+    backgroundColor: 'rgba(247,135,51, 1)' 
+  }
 });
