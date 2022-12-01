@@ -4,11 +4,13 @@ import {Card, CardActions, CardContent, CardMedia, Button, Typography} from '@ma
 import DeleteIcon from '@material-ui/icons/Delete'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import useStyles from './styles.js'
+import { useDispatch } from 'react-redux'
 
+import { deletePicture } from '../../../actions/pictures.js'
 
 const Picture = ({ picture }) => {
     const classes = useStyles();
-    
+    const dispatch = useDispatch();
     return (
         <Card className={classes.card}>
             <CardMedia className={classes.media} image={picture.image} title={picture.name}/>
@@ -28,7 +30,7 @@ const Picture = ({ picture }) => {
                 <Typography className={classes.title} variant="h5" gutterBottom>Description: {picture.description}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button style={{color: 'purple'}} size="small" color="primary" onClick={() => {}}>
+                <Button style={{color: 'purple'}} size="small" color="primary" onClick={() => dispatch(deletePicture(picture._id))}>
                     <DeleteIcon fontSize="small" />
                     Delete
                 </Button>

@@ -7,6 +7,8 @@ import useStyles from './styles.js'
 import { getPictures } from '../../../actions/pictures.js'
 import { useNavigate } from 'react-router-dom'
 
+import { deleteAlbum } from '../../../actions/albums.js'
+
 const Album = ({ album, currentId, setCurrentId, setShowBack }) => {
     const classes = useStyles();
     const dispatch = useDispatch()
@@ -29,7 +31,7 @@ const Album = ({ album, currentId, setCurrentId, setShowBack }) => {
                 <Button variant="contained" className={classes.buttonEnter} onClick={navi}><Typography className={classes.title} variant="h5" gutterBottom>Enter album</Typography></Button>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button style={{color: 'purple'}} size="small" onClick={() => {}}>
+                <Button style={{color: 'purple'}} size="small" onClick={() => dispatch(deleteAlbum(album._id))}>
                     <DeleteIcon fontSize="small" />
                     Delete
                 </Button>

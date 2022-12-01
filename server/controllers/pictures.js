@@ -1,6 +1,7 @@
 import pictureModel from '../models/pictureModel.js';
 import { createClient } from 'pexels'
 import axios from 'axios'
+import mongoose from 'mongoose';
 
 export const getPictures = async (req, res) => {
     try {
@@ -86,18 +87,20 @@ export const updatePicture = async(req, res) => {
     
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No pic with that id');
 
-    const updatedPicture = await accountModel.findByIdAndUpdate(id, picture, {new: true});
+    const updatedPicture = await pictureModel.findByIdAndUpdate(id, picture, {new: true});
     
     res.json(updatedPicture);
 }
 
 export const deletePicture = async(req, res) => {
+    console.log("This runs")
     const {id} = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No acc with that id');
 
-    await accountModel.findByIdAndRemove(id);
+    await pictureModel.findByIdAndRemove(id);
 
+    
 
     res.json({ message: 'Picture deleted successfully' })
 }

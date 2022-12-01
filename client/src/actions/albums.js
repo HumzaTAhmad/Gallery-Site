@@ -18,3 +18,14 @@ export const createAlbum = (album) => async (dispatch) => {
         console.log(error);
     }
 }
+
+export const deleteAlbum = (id) => async (dispatch) => {
+    console.log("THis runs")
+    try {
+        await api.deleteAlbum(id);
+
+        dispatch({type: 'DELETE_ALB', payload: id})
+    } catch (error) {
+        console.log(error);
+    }
+}

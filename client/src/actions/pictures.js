@@ -18,3 +18,13 @@ export const createPicture = (picture) => async (dispatch) => {
         console.log(error);
     }
 }
+
+export const deletePicture = (id) => async (dispatch) => {
+    try {
+        await api.deletePicture(id);
+
+        dispatch({type: 'DELETE', payload: id})
+    } catch (error) {
+        console.log(error);
+    }
+}

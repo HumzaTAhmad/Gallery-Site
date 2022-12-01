@@ -1,5 +1,6 @@
 import albumModel from '../models/albumModel.js';
 import axios from 'axios'
+import mongoose from 'mongoose';
 
 export const getAlbums = async (req, res) => {
     try {
@@ -39,4 +40,17 @@ export const createAlbum = async (req, res) => {
     } catch (error) {
         res.status(409).json({ message: error.message })
     }
+}
+
+export const deleteAlbum = async(req, res) => {
+    console.log("This runs")
+    const {id} = req.params
+
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No acc with that id');
+
+    await albumModel.findByIdAndRemove(id);
+
+    
+
+    res.json({ message: 'Album deleted successfully' })
 }
