@@ -8,6 +8,7 @@ import { createPicture } from '../../actions/pictures.js'
 const PictureForm = ({ currentId }) => {
     const [pictureData, setPictureData] = useState({
         name:'',
+        description:'',
         id: currentId
     })
     const classes = useStyles();
@@ -28,6 +29,7 @@ const PictureForm = ({ currentId }) => {
             <form autocomplete="off" noValidate className={`${classes.form} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant="h6">Add a Picture</Typography>
                 <TextField name="name" variant="outlined" label="Name" fullWidth value={pictureData.name} onChange={(e) => setPictureData({ ...pictureData, name: e.target.value })}/>
+                <TextField name="description" variant="outlined" label="Description" fullWidth value={pictureData.description} onChange={(e) => setPictureData({ ...pictureData, description: e.target.value })}/>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button className={classes.secondButton} variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>

@@ -22,18 +22,19 @@ const Album = ({ album, currentId, setCurrentId, setShowBack }) => {
         <Card className={classes.card}>
             <CardMedia className={classes.media} image={album.image} title={album.name}/>
             <div className={classes.overlay2}>
-                <Button style={{color: 'white'}} size="small" onClick={() => {}}>
-                    <MoreHorizIcon fontSize="default" />
-                </Button>
             </div>
             <CardContent>
                 <Typography className={classes.title} variant="h5" gutterBottom>Album Name: {album.name}</Typography>
+                <Typography className={classes.title} variant="h5" gutterBottom>Description: {album.description}</Typography>
                 <Button variant="contained" className={classes.buttonEnter} onClick={navi}><Typography className={classes.title} variant="h5" gutterBottom>Enter album</Typography></Button>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={() => {}}>
+                <Button style={{color: 'purple'}} size="small" onClick={() => {}}>
                     <DeleteIcon fontSize="small" />
                     Delete
+                </Button>
+                <Button style={{color: 'purple'}} size="small" onClick={() => {}}>
+                    <MoreHorizIcon fontSize="default" />
                 </Button>
             </CardActions>
         </Card>

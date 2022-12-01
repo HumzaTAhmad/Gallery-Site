@@ -22,12 +22,18 @@ const Picture = ({ picture }) => {
                 </Button>
             </div>
             <CardContent>
-                <Typography className={classes.title} variant="h5" gutterBottom>Picture size: {picture.size} KB</Typography>
+                <Typography className={classes.title} variant="h5" gutterBottom>Picture height: {picture.height} px</Typography>
+                <Typography className={classes.title} variant="h5" gutterBottom>Picture width: {picture.width} px</Typography>
+                <Typography className={classes.title} variant="h5" gutterBottom>Photographer: {picture.photographerName}</Typography>
+                <Typography className={classes.title} variant="h5" gutterBottom>Description: {picture.description}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={() => {}}>
+                <Button style={{color: 'purple'}} size="small" color="primary" onClick={() => {}}>
                     <DeleteIcon fontSize="small" />
                     Delete
+                </Button>
+                <Button style={{color: 'purple'}} size="small" onClick={() => {}}>
+                    <MoreHorizIcon fontSize="default" />
                 </Button>
             </CardActions>
         </Card>

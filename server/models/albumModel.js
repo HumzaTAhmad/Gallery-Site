@@ -4,7 +4,8 @@ import internal from 'stream';
 
 const albumSchema = mongoose.Schema({
     image: String,
-    name: String
+    name: String,
+    description: String
 });
 
 const albumModel = mongoose.model('albumModel', albumSchema);

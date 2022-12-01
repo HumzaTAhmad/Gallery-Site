@@ -7,7 +7,8 @@ import { createAlbum } from '../../actions/albums.js'
 
 const AlbumForm = () => {
     const [albumData, setAlbumData] = useState({
-        name:''
+        name:'',
+        description: ''
     })
     const classes = useStyles();
 
@@ -27,6 +28,7 @@ const AlbumForm = () => {
             <form autocomplete="off" noValidate className={`${classes.form} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant="h6">Add an Album</Typography>
                 <TextField name="name" variant="outlined" label="Name" fullWidth value={albumData.name} onChange={(e) => setAlbumData({ ...albumData, name: e.target.value })}/>
+                <TextField name="description" variant="outlined" label="Description" fullWidth value={albumData.description} onChange={(e) => setAlbumData({ ...albumData, description: e.target.value })}/>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button className={classes.secondButton} variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>
