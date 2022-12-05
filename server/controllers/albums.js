@@ -42,6 +42,18 @@ export const createAlbum = async (req, res) => {
     }
 }
 
+export const updateAlbum = async(req, res) => {
+    console.log(req.params)
+    const {id} = req.params
+    const album = req.body;
+    
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No pic with that id');
+
+    const updatedAlbum = await albumModel.findByIdAndUpdate(id, album, {new: true});
+    
+    res.json(updatedAlbum);
+}
+
 export const deleteAlbum = async(req, res) => {
     console.log("This runs")
     const {id} = req.params
