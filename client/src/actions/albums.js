@@ -19,6 +19,15 @@ export const createAlbum = (album) => async (dispatch) => {
     }
 }
 
+export const updateAlbum = (id, album) => async (dispatch) => {
+    try {
+        const { data } = await api.updateAlbum(id, album)
+        dispatch({type: 'UPDATE_ALB', payload: data})
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
 export const deleteAlbum = (id) => async (dispatch) => {
     console.log("THis runs")
     try {

@@ -6,9 +6,6 @@ import mongoose from 'mongoose';
 export const getPictures = async (req, res) => {
     try {
         const pictures = await pictureModel.find();
-
-        console.log("get pictures ran")
-
         res.status(200).json(pictures);
     } catch(error) {
         res.status(404).json({message: error.message})
@@ -56,6 +53,7 @@ export const createPicture = async (req, res) => {
     const image = `https://images.pexels.com/photos/${img_id}/pexels-photo-${img_id}.jpeg`
     const foundAt = new Date()
     const photographerName = apiReq.photos[0].photographer
+    const link = apiReq.photos[0].url
     const id = req.body.id
 
     try {
@@ -67,6 +65,7 @@ export const createPicture = async (req, res) => {
             description: desc,
             image: image,
             foundAt: foundAt,
+            link: link,
             photographerName: photographerName
         })
 

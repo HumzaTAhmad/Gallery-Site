@@ -12,6 +12,7 @@ const pictureSchema = mongoose.Schema({
         type: Date,
     },
     photographerName: String,
+    link: String,
     description: String
 });
 

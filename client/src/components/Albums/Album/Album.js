@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { deleteAlbum } from '../../../actions/albums.js'
 
-const Album = ({ album, currentId, setCurrentId, setShowBack }) => {
+const Album = ({ album, setCurrentAlbumId, currentId, setCurrentId, setShowBack }) => {
     const classes = useStyles();
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -35,7 +35,7 @@ const Album = ({ album, currentId, setCurrentId, setShowBack }) => {
                     <DeleteIcon fontSize="small" />
                     Delete
                 </Button>
-                <Button style={{color: 'purple'}} size="small" onClick={() => {}}>
+                <Button style={{color: 'purple'}} size="small" onClick={() => setCurrentAlbumId(album._id)}>
                     <MoreHorizIcon fontSize="default" />
                 </Button>
             </CardActions>

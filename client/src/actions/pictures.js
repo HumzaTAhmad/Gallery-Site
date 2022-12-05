@@ -19,11 +19,20 @@ export const createPicture = (picture) => async (dispatch) => {
     }
 }
 
+export const updatePicture = (id, picture) => async (dispatch) => {
+    try {
+        const { data } = await api.updatePicture(id, picture)
+        dispatch({type: 'UPDATE_PIC', payload: data})
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
 export const deletePicture = (id) => async (dispatch) => {
     try {
         await api.deletePicture(id);
 
-        dispatch({type: 'DELETE', payload: id})
+        dispatch({type: 'DELETE_PIC', payload: id})
     } catch (error) {
         console.log(error);
     }

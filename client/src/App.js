@@ -24,7 +24,7 @@ const App = () => {
     useEffect(() => {
         dispatch(getAlbums());
         dispatch(getPictures());
-    }, [currentId, dispatch])
+    }, [currentId, currentPictureId, currentAlbumId, dispatch])
     
     return(
         <Router>
@@ -44,8 +44,8 @@ const App = () => {
                             </Grid>
                             <Grid item xs={12} sm={7}>
                                 <Routes>
-                                    <Route path="/albums" element={<Albums currentId={currentId} setCurrentId={setCurrentId} setShowBack={setShowBack}/>}/>
-                                    <Route path="/pictures" element={<Pictures currentId={currentId} setCurrentId={setCurrentId}/>}/>
+                                    <Route path="/albums" element={<Albums setCurrentAlbumId={setCurrentAlbumId} currentId={currentId} setCurrentId={setCurrentId} setShowBack={setShowBack}/>}/>
+                                    <Route path="/pictures" element={<Pictures setCurrentPictureId={setCurrentPictureId} currentId={currentId} setCurrentId={setCurrentId}/>}/>
                                 </Routes>
                             </Grid>
                         </Grid>
