@@ -15,7 +15,7 @@ const Album = ({ album, currentId, setCurrentId, setShowBack }) => {
     const navigate = useNavigate()
 
     const navi = () => {
-        setCurrentId(album._id)
+        setCurrentId(album.name)
         setShowBack(true)
         navigate('/pictures')
     }

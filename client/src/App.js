@@ -15,6 +15,8 @@ import { useNavigate } from 'react-router-dom'
 
 const App = () => {
     const [currentId, setCurrentId] = useState(0)
+    const [currentPictureId, setCurrentPictureId] = useState(0) //for update picture
+    const [currentAlbumId, setCurrentAlbumId] = useState(0) // for update album
     const [showBack, setShowBack] = useState(false)
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -38,7 +40,7 @@ const App = () => {
                     <Container>
                         <Grid container justify="space-between" alignItems="stretch" spacing={3}>
                             <Grid item xs={12} sm={4}>
-                                {!currentId.length ? <AlbumForm />:<PictureForm currentId={currentId}/>}
+                                {!currentId.length ? <AlbumForm currentAlbumId={currentAlbumId} setCurrentAlbumId={setCurrentAlbumId}/>:<PictureForm currentPictureId={currentPictureId} setCurrentPictureId={setCurrentPictureId} currentId={currentId}/>}
                             </Grid>
                             <Grid item xs={12} sm={7}>
                                 <Routes>
