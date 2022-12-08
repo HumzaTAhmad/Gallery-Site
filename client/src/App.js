@@ -7,6 +7,7 @@ import { getPictures } from './actions/pictures.js'
 import gal from './images/gal.png'
 import Albums from './components/Albums/Albums.js';
 import Pictures from './components/Pictures/Pictures.js';
+import Graphs from './components/Graphs/Graphs.js'
 import AlbumForm from './components/Form/AlbumForm.js';
 import PictureForm from './components/Form/PictureForm.js';
 import useStyles from './styles.js'
@@ -40,12 +41,13 @@ const App = () => {
                     <Container>
                         <Grid container justify="space-between" alignItems="stretch" spacing={3}>
                             <Grid item xs={12} sm={4}>
-                                {!currentId.length ? <AlbumForm currentAlbumId={currentAlbumId} setCurrentAlbumId={setCurrentAlbumId}/>:<PictureForm currentPictureId={currentPictureId} setCurrentPictureId={setCurrentPictureId} currentId={currentId}/>}
+                                {!currentId.length ? <AlbumForm currentAlbumId={currentAlbumId} setCurrentAlbumId={setCurrentAlbumId} setShowBack={setShowBack}/>:<PictureForm currentPictureId={currentPictureId} setCurrentPictureId={setCurrentPictureId} currentId={currentId}/>}
                             </Grid>
                             <Grid item xs={12} sm={7}>
                                 <Routes>
                                     <Route path="/albums" element={<Albums setCurrentAlbumId={setCurrentAlbumId} currentId={currentId} setCurrentId={setCurrentId} setShowBack={setShowBack}/>}/>
                                     <Route path="/pictures" element={<Pictures setCurrentPictureId={setCurrentPictureId} currentId={currentId} setCurrentId={setCurrentId}/>}/>
+                                    <Route path="/statistics" element={<Graphs setShowBack={setShowBack}/>}/>
                                 </Routes>
                             </Grid>
                         </Grid>
